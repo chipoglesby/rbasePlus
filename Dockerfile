@@ -10,13 +10,11 @@ RUN apt-get update \
     nano \
     git \
     apt-utils \
-    libcurl4-openssl-dev
+    libcurl4-openssl-dev \
+    cron
 
 # Installs The Google Cloud SDK
 RUN curl -sSL https://sdk.cloud.google.com | bash
-
-# Adds Google Path File
-ENV PATH $PATH:/root/google-cloud-sdk/bin
 
 # Installs necessary R packages
 RUN R -e "install.packages(c('curl', 'httr', 'bigrquery', 'searchConsoleR','googleAnalyticsR', 'dplyr','googleAuthR'), repos = 'http://cran.us.r-project.org')"
