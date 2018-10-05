@@ -11,12 +11,10 @@ RUN apt-get update \
     git \
     apt-utils \
     libcurl4-openssl-dev \
-    cron
-
-# Installs The Google Cloud SDK
-RUN curl -sSL https://sdk.cloud.google.com | bash
-
-# Installs necessary R packages
-RUN R -e "install.packages(c('curl', 'httr', 'bigrquery', 'searchConsoleR','googleAnalyticsR', 'dplyr','googleAuthR'), repos = 'http://cran.us.r-project.org')"
+    cron \
+    && curl -sSL https://sdk.cloud.google.com | bash \
+    && Rscript -e "install.packages(c('curl', 'httr', 'bigrquery', 'searchConsoleR','googleAnalyticsR', 'dplyr','googleAuthR'), repos = 'http://cran.us.r-project.org')" \
+    && rm -rf /tmp/downloaded_packages/ /tmp/*.rds \
+    && rm -rf /var/lib/apt/lists/*
 
 ENTRYPOINT ["/bin/bash"]
