@@ -17,6 +17,6 @@ RUN apt-get update \
 RUN curl -sSL https://sdk.cloud.google.com | bash
 
 # Installs necessary R packages
-RUN R -ess "install.packages(c('curl', 'httr', 'bigrquery', 'searchConsoleR','googleAnalyticsR', 'dplyr','googleAuthR'), repos = 'http://cran.us.r-project.org')"
+RUN R -e "install.packages(c('curl', 'httr', 'bigrquery', 'searchConsoleR','googleAnalyticsR', 'dplyr','googleAuthR'), repos = 'http://cran.us.r-project.org')"
 
 ENTRYPOINT ["/bin/bash"]
