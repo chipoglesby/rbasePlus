@@ -6,13 +6,15 @@ RUN apt-get update \
     python \
     curl \
     tar \
-    libssl \
+    libssl-dev \
     nano \
     git \
     apt-utils \
     libcurl4-openssl-dev \
     cron \
     && curl -sSL https://sdk.cloud.google.com | bash \
-    && Rscript -e "install.packages(c('readr','curl', 'httr', 'httpuv', 'bigrquery', 'searchConsoleR','googleAnalyticsR', 'dplyr','googleAuthR'), repos = 'http://cran.us.r-project.org')" \
+    && Rscript -e "install.packages(c('curl', 'httr', 'readr','httpuv', 'bigrquery', 'searchConsoleR','googleAnalyticsR', 'dplyr','googleAuthR'), repos = 'http://cran.us.r-project.org')" \
     && rm -rf /tmp/downloaded_packages/ /tmp/*.rds \
     && rm -rf /var/lib/apt/lists/*
+
+ENTRYPOINT ["/bin/bash"]
