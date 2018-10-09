@@ -6,7 +6,7 @@ RUN apt-get update \
     python \
     curl \
     tar \
-    libssl-dev \
+    libssl \
     nano \
     git \
     apt-utils \
