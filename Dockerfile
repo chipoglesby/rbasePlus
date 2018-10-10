@@ -1,15 +1,16 @@
 FROM rocker/r-base:latest
 
-# Installs needed Linux packages
 RUN apt-get update \
-  && apt-get install -y --no-install-recommends \
-    python \
-    curl \
-    tar \
-    libssl1.1/testing \
-    libssl-dev \
-    nano \
-    git \
-    apt-utils \
-    libcurl4-openssl-dev \
-    cron
+  && apt-get install -y --allow-downgrades --no-install-recommends \
+  apt-utils \
+  python \
+  curl \
+  tar \
+  libssl1.1/testing \
+  libssl-dev \
+  nano \
+  git \
+  libcurl4-openssl-dev \
+  cron \
+  && apt-get autoremove -y \
+  && curl -sSL https://sdk.cloud.google.com | bash
