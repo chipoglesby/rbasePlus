@@ -12,8 +12,9 @@ RUN apt-get update \
   git \
   libcurl4-openssl-dev \
   cron \
-  && apt-get autoremove -y \
   && curl -sSL https://sdk.cloud.google.com | bash \
   && Rscript -e "install.packages(c('readr','curl', 'httr', 'httpuv', 'bigrquery', 'searchConsoleR','googleAnalyticsR', 'dplyr','googleAuthR'), repos = 'http://cran.us.r-project.org')" \
   && rm -rf /tmp/downloaded_packages/ /tmp/*.rds \
   && rm -rf /var/lib/apt/lists/*
+
+ENV PATH $PATH:/root/google-cloud-sdk/bin
