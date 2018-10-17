@@ -6,6 +6,8 @@ RUN apt-get update \
   python \
   curl \
   tar \
+  libpython3.6-stdlib\
+  python3.6-minimal \
   libssl1.1/testing \
   libssl-dev \
   nano \
@@ -15,6 +17,8 @@ RUN apt-get update \
   && curl -sSL https://sdk.cloud.google.com | bash \
   && Rscript -e "install.packages(c('readr','curl', 'httr', 'httpuv', 'bigrquery', 'searchConsoleR','googleAnalyticsR', 'dplyr','googleAuthR'), repos = 'http://cran.us.r-project.org')" \
   && rm -rf /tmp/downloaded_packages/ /tmp/*.rds \
-  && rm -rf /var/lib/apt/lists/*
+  && rm -rf /var/lib/apt/lists/* \
+  && apt-get upgrade -y \
+  && apt autoremove -y
 
 ENV PATH $PATH:/root/google-cloud-sdk/bin
