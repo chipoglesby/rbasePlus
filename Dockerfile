@@ -6,8 +6,8 @@ RUN apt-get update \
   python \
   curl \
   tar \
-  python3.6-minimal \
-  libpython3.6-stdlib\
+  libpython3.6-minimal \
+  libpython3.6-stdlib \
   libssl1.1/testing \
   libssl-dev \
   nano \
