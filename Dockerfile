@@ -9,14 +9,14 @@ RUN apt-get update \
 
 RUN apt-get install -y --allow-downgrades --no-install-recommends \
   libssl1.1/testing \
-  python \
+  cron \
   curl \
+  git \
+  nano \
+  python \
   tar \
   libssl-dev \
-  nano \
-  git \
   libcurl4-openssl-dev \
-  cron \
   && curl -sSL https://sdk.cloud.google.com | bash \
   && Rscript -e "install.packages(c('readr','curl', 'httr', 'httpuv', 'bigrquery', 'searchConsoleR','googleAnalyticsR', 'dplyr','googleAuthR'), repos = 'http://cran.us.r-project.org')" \
   && rm -rf /tmp/downloaded_packages/ /tmp/*.rds \
