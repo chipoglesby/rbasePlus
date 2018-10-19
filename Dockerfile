@@ -8,13 +8,13 @@ RUN apt-get update \
   libpython3.6-stdlib
 
 RUN apt-get install -y --allow-downgrades --no-install-recommends \
-  libssl1.1/testing \
   cron \
   curl \
   git \
   nano \
   python \
   tar \
+  libssl1.1/testing \
   libssl-dev \
   libcurl4-openssl-dev \
   && curl -sSL https://sdk.cloud.google.com | bash \
